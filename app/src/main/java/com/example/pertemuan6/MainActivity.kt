@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.DatePicker
 import android.widget.DatePicker.OnDateChangedListener
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import com.example.pertemuan6.databinding.ActivityMainBinding
 import java.util.Calendar
+import java.util.Locale
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -19,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding){
+
 //            Get Array
             val monthList = resources.getStringArray(R.array.month)
             val kehadiranList =resources.getStringArray(R.array.kehadiranList)
@@ -27,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             val _tempCalendar : Calendar = Calendar.getInstance()
             _tempCalendar.timeInMillis = System.currentTimeMillis()
             var selectedDate = "${_tempCalendar.get(Calendar.DAY_OF_MONTH)} ${monthList[_tempCalendar.get(Calendar.MONTH)]} ${_tempCalendar.get(Calendar.YEAR)}"
+
+
 
 
 //            Kehadiran Dropdown=======================================
@@ -64,4 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+
+//    override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
+//        val time = String.format(Locale.getDefault(),"%02d:%02d, p1, p2")
+//    }
+
 }
