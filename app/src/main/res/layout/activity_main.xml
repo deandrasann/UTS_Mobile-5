@@ -81,8 +81,10 @@
                 android:background="@drawable/bg_spinner"
                 android:paddingLeft="30dp"
                 android:hint="Keterangan"
-                />
+                android:visibility="invisible"
 
+                />
+            <!--                android:visibility="gone"-->
         </LinearLayout>
 
         <Button
